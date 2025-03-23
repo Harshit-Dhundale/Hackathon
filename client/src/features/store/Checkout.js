@@ -124,7 +124,7 @@ const Checkout = () => {
         key: process.env.REACT_APP_RAZORPAY_KEY_ID,
         amount: data.razorpayOrder.amount,
         currency: data.razorpayOrder.currency,
-        name: "FarmiCulture Equipment",
+        name: "MarketMitra Equipment",
         description: `Order ${data.order.orderId}`,
         order_id: data.razorpayOrder.id,
         handler: async (response) => {

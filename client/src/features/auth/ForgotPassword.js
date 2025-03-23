@@ -17,7 +17,7 @@ const ForgotPassword = () => {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      const res = await axios.post(`http://localhost:5000/api/users/forgot-password`, { email });
+      const res = await axios.post(`https://hackathon-backend-6c9z.onrender.com/api/users/forgot-password`, { email });
 setMessage(res.data.message);
       // Redirect to OTP verification page with email as state
       navigate("/forgot-password/otp", { state: { email } });

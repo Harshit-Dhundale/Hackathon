@@ -49,8 +49,8 @@ const About = () => {
         </section>
 
         <footer className={styles.aboutFooter}>
-          <p>Join thousands of farmers transforming their agricultural journey with FarmiCulture</p>
-          <p>&copy; 2025 FarmiCulture. All rights reserved.</p>
+          <p>Join thousands of farmers transforming their agricultural journey with MarketMitra</p>
+          <p>&copy; 2025 MarketMitra. All rights reserved.</p>
         </footer>
       </div>
     </>

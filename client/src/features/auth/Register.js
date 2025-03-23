@@ -100,7 +100,7 @@ const Register = () => {
     }
     setIsSubmitting(true);
     try {
-      await axios.post(`http://localhost:5000/api/users/send-otp`, { email: formData.email });
+      await axios.post(`https://hackathon-backend-6c9z.onrender.com/api/users/send-otp`, { email: formData.email });
       setOtpSent(true);
     } catch (error) {
       setErrors({ form: error.response?.data?.message || "Error sending OTP" });

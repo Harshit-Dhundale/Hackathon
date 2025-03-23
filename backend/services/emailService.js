@@ -57,7 +57,7 @@ const sendOrderConfirmationEmail = async (toEmail, orderDetails = {}, user = {})
                 <div>
                   <div style="font-weight: 600;">${p.name || 'Product N/A'}</div>
                   <div style="color: #718096;">
-                    SKU: FC-${p._id ? p._id.slice(-6) : '000000'}
+                    SKU: MM-${p._id ? p._id.slice(-6) : '000000'}
                   </div>
                 </div>
               </div>
@@ -78,7 +78,7 @@ const sendOrderConfirmationEmail = async (toEmail, orderDetails = {}, user = {})
         </tr>
       `;
 
-    // Updated Email Template with inline banner image and product details table
+    // Email Template updated for MarketMitra
     const emailTemplate = `
       <!DOCTYPE html>
       <html lang="en">
@@ -134,13 +134,13 @@ const sendOrderConfirmationEmail = async (toEmail, orderDetails = {}, user = {})
         <div class="email-wrapper">
           <!-- Header -->
           <div class="header">
-            <img src="cid:logo@farmiculture" alt="FarmiCulture Logo" />
+            <img src="cid:logo@marketmitra" alt="MarketMitra Logo" />
             <h1>Order Confirmed!</h1>
             <p>Thank you for your purchase, ${userName}!</p>
           </div>
           <!-- Inline Banner Image -->
           <div class="banner">
-            <img src="cid:banner@farmiculture" alt="FarmiCulture Banner" />
+            <img src="cid:banner@marketmitra" alt="MarketMitra Banner" />
           </div>
           <!-- Content -->
           <div class="content">
@@ -169,7 +169,7 @@ const sendOrderConfirmationEmail = async (toEmail, orderDetails = {}, user = {})
             <div class="tracking-box">
               <p><i class="fas fa-truck"></i> Estimated Delivery: <strong>${deliveryDate}</strong></p>
             </div>
-            <p>If you have any questions, please <a href="mailto:support@farmiculture.com">contact our support team</a>.</p>
+            <p>If you have any questions, please <a href="mailto:support@marketmitra.com">contact our support team</a>.</p>
           </div>
           <!-- Footer -->
           <div class="footer">
@@ -179,8 +179,8 @@ const sendOrderConfirmationEmail = async (toEmail, orderDetails = {}, user = {})
               <a href="[Twitter URL]"><i class="fab fa-twitter"></i></a>
               <a href="[Instagram URL]"><i class="fab fa-instagram"></i></a>
             </p>
-            <p>&copy; ${new Date().getFullYear()} FarmiCulture<br />
-            123 Farm Street, Agro City, IN 560001<br />
+            <p>&copy; ${new Date().getFullYear()} MarketMitra<br />
+            123 Market Street, Commerce City, IN 560001<br />
             <a href="[Privacy Policy URL]">Privacy Policy</a> | 
             <a href="[Terms of Service URL]">Terms of Service</a></p>
           </div>
@@ -190,20 +190,20 @@ const sendOrderConfirmationEmail = async (toEmail, orderDetails = {}, user = {})
     `;
 
     const mailOptions = {
-      from: `FarmiCulture 🌱 <${EMAIL_USER}>`,
+      from: `MarketMitra 🚀 <${EMAIL_USER}>`,
       to: toEmail,
-      subject: `✅ Order #${orderId} Confirmed! Your Supplies Are On Their Way`,
+      subject: `✅ Order #${orderId} Confirmed! Your Order is On Its Way`,
       html: emailTemplate,
       attachments: [
         {
           filename: 'logo1.jpg',
           path: path.join(__dirname, '../client/public/assets/logo1.jpg'),
-          cid: 'logo@farmiculture'
+          cid: 'logo@marketmitra'
         },
         {
           filename: 'farm-banner.jpg',
           path: path.join(__dirname, '../client/public/assets/farm-background.jpg'),
-          cid: 'banner@farmiculture'
+          cid: 'banner@marketmitra'
         }
       ]
     };

@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: "http://localhost:5000/api",
+  baseURL: "https://hackathon-backend-6c9z.onrender.com/api",
   withCredentials: true,
   // timeout: 50000,
 });
