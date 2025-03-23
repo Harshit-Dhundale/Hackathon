@@ -5,7 +5,7 @@ import HeroHeader from "../../components/common/HeroHeader";
 import ProductModal from "./ProductModal";
 import "./AdminPanel.css";
 import api from "../../utils/api";
-import { useAuth } from "../../context/AuthContext"; // <-- Import Auth context
+import { useAuth } from "../../context/AuthContext";
 
 const subCategories = {
   "Crop Seeds": ["Cereals", "Pulses", "Oilseeds", "Vegetables", "Fruits"],
@@ -52,7 +52,8 @@ const AdminPanel = () => {
   // --------------------------------
   const fetchProducts = () => {
     setLoadingProducts(true);
-    api.get("/products")
+    // Fetch only products created by the current admin user
+    api.get(`/products?createdBy=${encodeURIComponent(currentUser._id)}`)
       .then((res) => {
         setProducts(res.data);
         setLoadingProducts(false);
@@ -64,8 +65,10 @@ const AdminPanel = () => {
   };
 
   useEffect(() => {
-    fetchProducts();
-  }, []);
+    if (currentUser) {
+      fetchProducts();
+    }
+  }, [currentUser]);
 
   // --------------------------------
   // FETCH ORDERS ON COMPONENT LOAD
@@ -110,7 +113,7 @@ const AdminPanel = () => {
     try {
       // If this is a new product, attach the current admin's user ID
       if (!productData._id) {
-        productData.createdBy = currentUser._id; // <-- Attach admin's user ID
+        productData.createdBy = currentUser._id;
         await api.post("/products", productData);
       } else {
         await api.put(`/products/${productData._id}`, productData);
@@ -157,12 +160,18 @@ const AdminPanel = () => {
   };
 
   // -----------------------------
-  // FILTER: Orders by Delivery Status
+  // FILTER: Orders by Delivery Status and current admin's products
   // -----------------------------
+  // Derive current admin's product IDs
+  const adminProductIds = products.map(prod => prod._id.toString());
+
   const filteredOrders = orders.filter(order => {
-    // 'All' passes everything, otherwise match the order's deliveryStatus
-    return filterDeliveryStatus === "All"
-      || order.deliveryStatus === filterDeliveryStatus;
+    // Check if any product in the order belongs to the current admin
+    const hasAdminProduct = order.products.some(item => 
+      adminProductIds.includes(item.product.toString())
+    );
+    const statusMatch = filterDeliveryStatus === "All" || order.deliveryStatus === filterDeliveryStatus;
+    return hasAdminProduct && statusMatch;
   });
 
   // -----------------------------
