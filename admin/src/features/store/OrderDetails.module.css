@@ -1,0 +1,274 @@
+:root {
+  --primary: #2e7d32;
+  --success: #4caf50;
+  --warning: #ff9800;
+  --danger: #f44336;
+  --info: #2196f3;
+  --background: #f8f9fa;
+  --textPrimary: #2c3e50;
+  --textSecondary: #666;
+  --cardShadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --borderRadius: 12px;
+  --transitionSpeed: 0.3s;
+}
+
+.orderDetails {
+  padding: 20px;
+  min-height: 100vh;
+}
+
+.orderDetailsContainer {
+  max-width: 1400px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.horizontalLayout {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 30px;
+  align-items: start;
+}
+
+.leftColumn,
+.rightColumn {
+  display: grid;
+  gap: 30px;
+}
+
+/* Sticky left column on wider screens */
+.leftColumn {
+  position: sticky;
+  top: 30px;
+}
+
+/* Card Styles */
+.card {
+  background: #fff;
+  border-radius: var(--borderRadius);
+  padding: 24px;
+  box-shadow: var(--cardShadow);
+  transition: transform var(--transitionSpeed) ease, box-shadow var(--transitionSpeed) ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  font-size: 1.4rem;
+  color: var(--textPrimary);
+  border-bottom: 2px solid var(--primary);
+  padding-bottom: 8px;
+}
+
+/* Overview Grid */
+.overviewGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.overviewItem {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background: var(--background);
+  border-radius: 8px;
+}
+
+.overviewItem .icon {
+  font-size: 1.5rem;
+  color: var(--primary);
+}
+
+.overviewItem label {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--textSecondary);
+  margin-bottom: 4px;
+}
+
+.overviewItem p {
+  margin: 0;
+  font-weight: 500;
+  color: var(--textPrimary);
+}
+
+/* Status Badge */
+.statusBadge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* Shipping & Payment Info */
+.shippingInfo,
+.paymentDetails {
+  display: grid;
+  gap: 15px;
+}
+
+.addressLine {
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* Responsive Table */
+.responsiveTable {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+}
+
+th,
+td {
+  padding: 14px 16px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+th {
+  background-color: var(--primary);
+  color: #fff;
+  font-weight: 500;
+}
+
+tr:hover {
+  background-color: #f5f5f5;
+}
+
+.productCell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.productImage {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+/* Clickable IDs */
+.clickableId {
+  color: var(--primary);
+  cursor: pointer;
+  text-decoration: underline dotted;
+  transition: color var(--transitionSpeed) ease;
+}
+
+.clickableId:hover {
+  color: #1b5e20;
+}
+
+/* Back Button */
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--borderRadius);
+  cursor: pointer;
+  transition: background var(--transitionSpeed) ease, transform var(--transitionSpeed) ease;
+  margin-bottom: 30px;
+}
+
+.backButton:hover {
+  background: #1b5e20;
+  transform: translateY(-2px);
+}
+
+/* Loading Spinner */
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  gap: 16px;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid var(--primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Retry Payment */
+.retryPaymentContainer {
+  margin-top: 20px;
+}
+
+.btn {
+  padding: 12px 24px;
+  font-size: 1rem;
+  border: none;
+  border-radius: var(--borderRadius);
+  cursor: pointer;
+  transition: background var(--transitionSpeed) ease;
+}
+
+.retryButton {
+  background: var(--danger);
+  color: #fff;
+}
+
+.retryButton:hover {
+  background: #c62828;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .horizontalLayout {
+    grid-template-columns: 1fr;
+  }
+  .leftColumn {
+    position: static;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .leftColumn {
+    grid-template-columns: 1fr;
+  }
+  .overviewGrid {
+    grid-template-columns: 1fr;
+  }
+  .orderDetailsContainer {
+    padding: 0 15px;
+  }
+  .card {
+    padding: 20px;
+  }
+  th,
+  td {
+    padding: 12px;
+  }
+}

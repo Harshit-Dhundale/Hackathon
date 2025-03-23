@@ -1,0 +1,7 @@
+backend/node_modules/
+python-service/venv/
+.env
+admin/node_modules/
+client/node_modules/
+client/.env
+scripts/sendMailTest.js

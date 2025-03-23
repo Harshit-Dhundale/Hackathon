@@ -1,0 +1,166 @@
+/* Ensure form fits within the viewport on desktop */
+.register-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 5rem;
+  padding-bottom: 1rem;
+  box-sizing: border-box;
+  height: 100vh;  /* Full viewport height */
+  overflow: hidden; /* Disable scrolling on larger screens */
+}
+
+/* Allow vertical scrolling on mobile devices */
+@media (max-width: 600px) {
+  .register-container {
+    overflow-y: auto;
+  }
+}
+
+/* Adjust form height to fit inside the container */
+.register-form {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 15px 25px;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+  width: 90%;
+  max-width: 900px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* On desktop, we can disable internal scrolling if content fits */
+  overflow-y: hidden;
+  max-height: calc(100vh - 6rem); /* leave some room for padding */
+}
+
+/* Allow internal scrolling on the form on mobile if necessary */
+@media (max-width: 600px) {
+  .register-form {
+    overflow-y: auto;
+  }
+}
+
+/* Other unchanged styles for inputs, grid, etc. */
+.brand-title {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.register-form h2 {
+  margin-bottom: 10px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 15px;
+  width: 100%;
+}
+
+.full-width {
+  grid-column: span 3;
+}
+
+.register-form input,
+.register-form select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+.register-form input:focus,
+.register-form select:focus {
+  border-color: #4caf50;
+  outline: none;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+.register-form .btn {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #4caf50, #388e3c);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.register-form .btn:hover {
+  background: linear-gradient(135deg, #388e3c, #2e7d32);
+}
+
+.password-strength {
+  height: 6px;
+  width: 100%;
+  background-color: #ddd;
+  border-radius: 6px;
+  margin-top: 5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.strength-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #ff4b5c, #ff9800, #4caf50);
+  border-radius: 6px;
+  transition: width 0.3s ease-in-out;
+}
+
+.error {
+  color: red;
+  font-size: 13px;
+  margin-top: 5px;
+  text-align: left;
+}
+
+.link {
+  display: block;
+  margin-top: 15px;
+  color: #0066cc;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .register-form {
+    max-width: 700px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .full-width {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .register-form {
+    max-width: 90%;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .full-width {
+    grid-column: span 1;
+  }
+}

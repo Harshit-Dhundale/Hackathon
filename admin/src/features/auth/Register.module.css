@@ -1,0 +1,200 @@
+/* Register.module.css */
+
+.registerContainer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 5rem;
+  padding-bottom: 1rem;
+  /* background: url('/assets/auth/background.jpg') no-repeat center center/cover; */
+  overflow: hidden;
+}
+
+.registerForm {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 15px 25px;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+  width: 90%;
+  max-width: 900px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: hidden;
+  max-height: calc(100vh - 6rem);
+}
+
+.authModuleHeader {
+  margin-bottom: 1rem;
+}
+
+.authModuleBrand {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 2.5rem;
+  color: #7AC752;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.authModuleLogo {
+  font-size: 2.8rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+.authModuleTagline {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.formTitle {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.fullWidth {
+  grid-column: span 3;
+}
+
+/* Input group styling */
+.inputGroup {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.inputIcon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+  font-size: 1.2rem;
+  pointer-events: none;
+}
+
+.registerForm input,
+.registerForm select {
+  width: 100%;
+  padding: 12px 12px 12px 40px; /* leave space for icon */
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  height: 42px; /* consistent height */
+  transition: border 0.3s ease;
+}
+
+.registerForm input:focus,
+.registerForm select:focus {
+  border-color: #4caf50;
+  outline: none;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.passwordGroup {
+  padding: none;
+  /* additional styling if needed */
+}
+
+.passwordStrength {
+  height: 6px;
+  width: 100%;
+  background-color: #ddd;
+  border-radius: 6px;
+  margin-top: 5px;
+  overflow: hidden;
+}
+
+.strengthBar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #ff4b5c, #ff9800, #4caf50);
+  border-radius: 6px;
+  transition: width 0.3s ease-in-out;
+}
+
+.passwordStrengthText {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 5px;
+}
+
+.btnPrimary {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #4caf50, #388e3c);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.btnPrimary:hover {
+  background: linear-gradient(135deg, #388e3c, #2e7d32);
+}
+
+.link {
+  display: block;
+  margin-top: 15px;
+  color: #0066cc;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+/* Animation for the logo */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .registerForm {
+    max-width: 700px;
+  }
+  .formGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .fullWidth {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .registerForm {
+    max-width: 90%;
+  }
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+  .fullWidth {
+    grid-column: span 1;
+  }
+}

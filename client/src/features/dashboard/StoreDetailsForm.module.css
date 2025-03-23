@@ -1,0 +1,21 @@
+.storeDetailsForm {
+  padding: none;
+}
+
+.storeDetailsForm form {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 10px !important;
+  align-items: start !important;
+}
+
+.storeDetailsForm textarea {
+  min-height: 80px !important;
+  resize: vertical !important;
+}
+
+@media (max-width: 768px) {
+  .storeDetailsForm form {
+    grid-template-columns: 1fr !important;
+  }
+}

@@ -1,0 +1,83 @@
+/* ProductModal.css */
+.product-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 1rem; /* Add padding around modal */
+  }
+  
+  .product-modal-content {
+    background: #fff;
+    border-radius: 8px;
+    padding: 2rem;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh; /* Limit modal height */
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .product-modal-form {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Contain content */
+  }
+  
+  .form-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    overflow-y: auto; /* Enable scrolling for content */
+    padding-right: 0.5rem;
+    margin-right: -0.5rem; /* Compensate for scrollbar */
+  }
+  
+  /* Custom scrollbar for form columns */
+  .form-columns::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .form-columns::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+  }
+  
+  .form-columns::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+  }
+  
+  .form-columns::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  
+  .modal-image-preview {
+    margin-top: 1rem;
+    max-width: 200px;
+    max-height: 200px; /* Limit image preview height */
+    border: 2px dashed #ddd;
+    padding: 0.5rem;
+    overflow: hidden;
+  }
+  
+  .modal-image-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    max-height: 180px; /* Additional image size constraint */
+  }
+  
+  .modal-actions {
+    flex-shrink: 0; /* Prevent button area from scrolling */
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee;
+  }

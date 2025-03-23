@@ -1,0 +1,167 @@
+.forumPostsCard {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease;
+}
+
+.forumPostsCard:hover {
+  transform: translateY(-2px);
+}
+
+.forumCardHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.headerIcon {
+  font-size: 1.6rem;
+  color: var(--primary-green);
+}
+
+.postsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.postCard {
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.2rem;
+  transition: box-shadow 0.2s ease;
+}
+
+.postCard:hover {
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+.postHeader {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.categoryIcon {
+  font-size: 1.4rem;
+  margin-top: 0.3rem;
+}
+
+.categoryIcon.question {
+  color: #2196F3;
+}
+
+.categoryIcon.resolved {
+  color: var(--primary-green);
+}
+
+.postMeta {
+  flex: 1;
+}
+
+.postTitle {
+  margin: 0 0 0.3rem;
+  font-size: 1.1rem;
+  color: var(--text-dark);
+}
+
+.postCategory {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  background: #f0f0f0;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  color: var(--text-light);
+}
+
+.postExcerpt {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.postFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.postStats {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.8rem;
+  color: var(--text-light);
+}
+
+.postDate {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.commentCount {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.viewPostBtn {
+  /* background: var(--primary-green); */
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background 0.2s ease;
+}
+
+.viewPostBtn:hover {
+  background: var(--hover-green);
+}
+
+.emptyState {
+  text-align: center;
+  padding: 2rem;
+}
+
+.emptyIcon {
+  font-size: 2.5rem;
+  color: #ddd;
+  margin-bottom: 1rem;
+}
+
+.createPostBtn {
+  /* background: var(--primary-green); */
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  transition: background 0.2s ease;
+}
+
+.createPostBtn:hover {
+  background: var(--hover-green);
+}
+
+@media (max-width: 768px) {
+  .postsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .postFooter {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}

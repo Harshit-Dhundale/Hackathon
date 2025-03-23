@@ -1,0 +1,284 @@
+/* Navbar.module.css */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 2rem;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #4CAF50;
+  text-decoration: none;
+}
+
+.navLinks {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.navItem a {
+  color: #333;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navItem a:hover,
+.navItem a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.authLinks {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.navbarAvatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #4CAF50;
+}
+
+.navbarUsername {
+  font-size: 1rem;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.mobileMenuToggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Dropdown Styles */
+.authDropdown {
+  position: relative;
+  cursor: pointer;
+}
+
+.dropdownToggle {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0 1rem; /* horizontal padding only */
+  height: 40px;    /* fixed height matching the avatar size */
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+}
+
+.dropdownToggle:hover {
+  background-color: #4CAF50;
+  color: #fff;
+}
+
+.dropdownArrow {
+  display: inline-block;
+  margin-left: 0.3rem;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #333;
+  transition: border-top-color 0.3s ease;
+}
+
+.dropdownToggle:hover .dropdownArrow {
+  border-top-color: #fff;
+}
+
+.authDropdown .dropdownMenu {
+  position: absolute;
+  top: 120%;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  padding: 0.5rem 0;
+  z-index: 1001;
+}
+
+.dropdownMenu .dropdownItem {
+  padding: 0.5rem 1rem;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  color: #333;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dropdownMenu .dropdownItem:hover {
+  background-color: #4CAF50;
+  color: #fff;
+}
+
+.dropdownMenu .dropdownItem:not(:last-child) {
+  border-bottom: 1px solid #eee;
+}
+
+/* New container for aligning logo and dark mode icon */
+.brandContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Adjust spacing as needed */
+}
+
+@media (max-width: 768px) {
+  .navLinks {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .navLinks.active {
+    display: flex;
+  }
+  
+  .navItem {
+    margin: 0.5rem 0;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .navItem a {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 0;
+  }
+  
+  .mobileMenuToggle {
+    display: block;
+  }
+  
+  .navbar {
+    padding: 0.5rem 1rem;
+  }
+}
+
+.navbarAvatar {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: var(--primary-green);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+/* Theme toggle positioning */
+.themeToggle {
+  display: flex;
+  align-items: center;
+  margin: 0 1rem;
+}
+
+.themeToggleBtn {
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #7AC752;
+  transition: color 0.3s ease;
+  padding: 0; /* Add this */
+  margin: 0 1rem; /* Add spacing if needed */
+  display: flex; /* For better icon alignment */
+  align-items: center;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Remove any potential focus styles */
+.themeToggleBtn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Remove any background effects */
+.themeToggleBtn:hover,
+.themeToggleBtn:active {
+  background: transparent;
+  transform: none; /* Remove if you had transform animations */
+}
+
+/* If using CSS modules, ensure dark mode overrides */
+:global(.dark) .themeToggleBtn {
+  color: #ffd700; /* Gold color for dark mode */
+}
+
+:global(.dark) .themeToggleBtn:hover {
+  color: #ffeb3b;
+}
+
+/* Global dark mode overrides */
+:global(.dark) body {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+:global(.dark) .navbar {
+  background-color: #1a1a1a;
+  border-bottom: 1px solid #333;
+}
+
+:global(.dark) .navLinks a,
+:global(.dark) .navbarUsername,
+:global(.dark) .dropdownItem {
+  color: #ffffff;
+}
+
+:global(.dark) .dropdownMenu {
+  background-color: #2d2d2d;
+  border: 1px solid #444;
+}
+
+:global(.dark) .dropdownItem:hover {
+  background-color: #3a3a3a;
+}
+
+@media (max-width: 768px) {
+  .themeToggle {
+    margin: 1rem auto;
+    order: -1;
+  }
+  
+  .dark-mode-toggle__button {
+    width: 40px !important;
+    height: 40px !important;
+  }
+}

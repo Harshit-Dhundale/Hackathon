@@ -1,0 +1,64 @@
+.ordersSummary {
+  padding: 20px;
+  margin-bottom: 30px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.ordersSummary h2 {
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  /* color: #2e7d32;  <-- Uncomment or adjust as needed */
+}
+
+.ordersStats {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.statItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.statIcon {
+  font-size: 2rem;
+  color: #2e7d32;
+}
+
+.statDetails {
+  text-align: center;
+}
+
+.statNumber {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.statLabel {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  /* background: #2e7d32; */
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #1b5e20;
+}

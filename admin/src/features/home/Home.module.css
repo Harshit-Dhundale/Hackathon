@@ -1,0 +1,205 @@
+.homeContainer {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* HERO SECTION */
+.heroSection {
+  position: relative;
+  height: 80vh;
+  background: url('/public/assets/farm-background.jpg') no-repeat center center/cover;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.heroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 1rem;
+  color: #fff;
+}
+
+/* HERO SECTION */
+.brandTitle {
+  font-size: 2.8rem;
+  margin-bottom: 0.5rem;
+  transition: transform 0.3s ease !important;
+  transform: scale(1); /* Add base state */
+}
+
+.brandTitle:hover {
+  transform: scale(1.05) !important;
+}
+
+/* Add this to override AOS animation after it completes */
+[data-aos="zoom-in"] {
+  transform: scale(1) !important;
+  transition: transform 0.3s ease !important;
+}
+
+.tagline {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  transition: opacity 0.3s ease;
+}
+
+.welcomeMessage {
+  font-size: 1.1rem;
+  max-width: 90%;
+  margin-bottom: 1.5rem;
+}
+
+.heroButtons {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.btnPrimary {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 0.7rem 1.2rem;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.btnPrimary:hover {
+  background-color: #43a047;
+  transform: translateY(-3px);
+}
+
+.btnSecondary {
+  background-color: #f9f9f9;
+  color: #4CAF50;
+  border: 2px solid #4CAF50;
+  padding: 0.7rem 1.2rem;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.btnSecondary:hover {
+  background-color: #ffffffda;
+  transform: translateY(-3px);
+}
+
+/* FEATURES SECTION */
+.featuresSection {
+  padding: 2rem 0;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.sectionTitle {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+  text-align: center;
+  animation: slideIn 1s ease forwards;
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  transform: scale(1);
+  cursor: default;
+  display: inline-block; /* Add this */
+}
+
+.sectionTitle:hover {
+  transform: scale(1.05) !important;
+}
+
+.featuresSlider {
+  width: 90%;
+  margin: 0 auto;
+}
+
+/* FEATURE SLIDE STYLES */
+.featureSlide {
+  padding: 0.5rem;
+}
+
+.featureCard {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all 0.3s ease !important;
+}
+
+.featureCard:hover {
+  transform: translateY(-5px) scale(1.05) !important;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15) !important;
+}
+
+.featureImageContainer {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  margin-bottom: 0.8rem;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.featureImageContainer:hover {
+  transform: scale(1.1);
+}
+
+.featureImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.featureTitle {
+  font-size: 1.6rem;
+  margin: 0.5rem 0;
+  color: #333;
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  transform: scale(1);
+  display: inline-block; /* Add this for better transform handling */
+}
+
+.featureTitle:hover {
+  transform: scale(1.05) !important;
+}
+
+.featureDescription {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 0.8rem;
+}
+
+.featureLink {
+  font-size: 1rem;
+  text-decoration: none;
+  color: #4CAF50;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.featureLink:hover {
+  color: #388e3c;
+}
+
+/* KEYFRAME ANIMATIONS */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
