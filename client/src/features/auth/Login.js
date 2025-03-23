@@ -45,7 +45,7 @@ const Login = () => {
           <div className="auth-module__header">
             <h1 className="auth-module__brand">
               <span className="auth-module__logo">
-              🌱
+              🛍
               </span>
               MarketMitra
             </h1>
