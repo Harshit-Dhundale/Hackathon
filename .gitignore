@@ -1,4 +1,4 @@
-backend/node_modules/
+node_modules
 python-service/venv/
 .env
 admin/node_modules/
