@@ -127,9 +127,9 @@ router.post(
     });
 
     const mailOptions = {
-      from: `FarmiCulture <${EMAIL_USER}>`,
+      from: `MarketMitra <${EMAIL_USER}>`,
       to: email,
-      subject: 'Your OTP for FarmiCulture Registration',
+      subject: 'Your OTP for MarketMitra Registration',
       html: `<p>Your OTP is: <strong>${otp}</strong></p>
              <p>This OTP is valid for 5 minutes.</p>`,
     };
@@ -196,9 +196,9 @@ router.post(
     });
 
     const mailOptions = {
-      from: `FarmiCulture <${EMAIL_USER}>`,
+      from: `MarketMitra <${EMAIL_USER}>`,
       to: email,
-      subject: 'Your new OTP for FarmiCulture Registration',
+      subject: 'Your new OTP for MarketMitra Registration',
       html: `<p>Your new OTP is: <strong>${otp}</strong></p>
              <p>This OTP is valid for 5 minutes.</p>`,
     };
@@ -245,7 +245,7 @@ router.post(
     });
 
     const mailOptions = {
-      from: `FarmiCulture <${EMAIL_USER}>`,
+      from: `MarketMitra <${EMAIL_USER}>`,
       to: email,
       subject: 'Your OTP for Password Reset',
       html: `<p>Your OTP for resetting your password is: <strong>${otp}</strong></p>

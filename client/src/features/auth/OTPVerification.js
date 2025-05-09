@@ -21,7 +21,7 @@ const OTPVerification = ({ email, formData, navigate }) => {
         setError("");
 
         try {
-            const response = await axios.post(`http://localhost:5000/api/users/verify-otp`, {
+            const response = await axios.post(`https://hackathon-backend-6c9z.onrender.com/api/users/verify-otp`, {
                 email,
                 otp,
                 userData: formData,
@@ -38,7 +38,7 @@ const OTPVerification = ({ email, formData, navigate }) => {
 
     const handleResendOTP = async () => {
         try {
-            await axios.post(`http://localhost:5000/api/users/resend-otp`, { email });
+            await axios.post(`https://hackathon-backend-6c9z.onrender.com/api/users/resend-otp`, { email });
             setResendDisabled(true);
             setCountdown(30);
         } catch (error) {

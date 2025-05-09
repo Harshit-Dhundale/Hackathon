@@ -18,7 +18,7 @@ const ForgotPasswordOTP = () => {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      await axios.post(`http://localhost:5000/api/users/verify-forgot-password-otp`, { email, otp });
+      await axios.post(`https://hackathon-backend-6c9z.onrender.com/api/users/verify-forgot-password-otp`, { email, otp });
       navigate("/reset-password", { state: { email } });
     } catch (err) {
       setError(err.response?.data?.message || "Invalid OTP");

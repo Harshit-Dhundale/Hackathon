@@ -22,7 +22,7 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      const res = await fetch(`http://localhost:5000/api/contact`, {
+      const res = await fetch(`https://hackathon-backend-6c9z.onrender.com/api/contact`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
@@ -137,8 +137,8 @@ const Contact = () => {
               <FiMail className={styles.infoIcon} />
               <div className={styles.infoContent}>
                 <h3>Email</h3>
-                <p>support@farmiculture.com</p>
-                <p>sales@farmiculture.com</p>
+                <p>support@MarketMitra.com</p>
+                <p>sales@MarketMitra.com</p>
               </div>
             </div>
 
@@ -155,14 +155,14 @@ const Contact = () => {
               <FiMapPin className={styles.infoIcon} />
               <div className={styles.infoContent}>
                 <h3>Address</h3>
-                <p>123 FarmiCulture Lane</p>
+                <p>123 MarketMitra Lane</p>
                 <p>Agricultural City, Country 12345</p>
               </div>
             </div>
 
             <div className={styles.mapEmbed}>
               <iframe
-                title="FarmiCulture Location"
+                title="MarketMitra Location"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.2848386102783!2d73.85401672470779!3d18.51602606931403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c06fa5b442ff%3A0x9df365f5b648bce1!2sShrimant%20Dagdusheth%20Halwai%20Ganpati%20Mandir!5e0!3m2!1sen!2sin!4v1741365070973!5m2!1sen!2sin"
                 width="400"
                 height="300"
@@ -190,7 +190,7 @@ const Contact = () => {
       )}
 
       <footer className={styles.contactFooter}>
-        <p>&copy; 2025 FarmiCulture. All rights reserved.</p>
+        <p>&copy; 2025 MarketMitra. All rights reserved.</p>
       </footer>
     </>
   );

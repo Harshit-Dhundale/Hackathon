@@ -100,7 +100,7 @@
 //     }
 //     setIsSubmitting(true);
 //     try {
-//       await axios.post(`http://localhost:5000/api/users/send-otp`, { email: formData.email });
+//       await axios.post(`https://hackathon-backend-6c9z.onrender.com/api/users/send-otp`, { email: formData.email });
 //       setOtpSent(true);
 //     } catch (error) {
 //       setErrors({ form: error.response?.data?.message || "Error sending OTP" });
@@ -117,7 +117,7 @@
 //           <div className={styles.authModuleHeader}>
 //             <h1 className={styles.authModuleBrand}>
 //               <span className={styles.authModuleLogo}>🌱</span>
-//               <span style={{ color: "#7AC752" }}>FarmiCulture</span>
+//               <span style={{ color: "#7AC752" }}>Stockly</span>
 //             </h1>
 //             <p className={styles.authModuleTagline}>Cultivating Digital Farm Communities</p>
 //           </div>
@@ -401,7 +401,7 @@ const Register = () => {
     setIsSubmitting(true);
     try {
       // The ONLY change: we now include `isAdmin: true` in the request body
-      await axios.post(`http://localhost:5000/api/users/send-otp`, {
+      await axios.post(`https://hackathon-backend-6c9z.onrender.com/api/users/send-otp`, {
         email: formData.email,
         isAdmin: true
       });
@@ -420,8 +420,8 @@ const Register = () => {
           {/* Header: Copied from Login with animation */}
           <div className={styles.authModuleHeader}>
             <h1 className={styles.authModuleBrand}>
-              <span className={styles.authModuleLogo}>🌱</span>
-              <span style={{ color: "#7AC752" }}>Stockly</span>
+              <span className={styles.authModuleLogo}>📦</span>
+              <span style={{ color: "#7AC752" }}>STOCKLY</span>
             </h1>
             <p className={styles.authModuleTagline}>Track Smarter Sell Faster</p>
           </div>

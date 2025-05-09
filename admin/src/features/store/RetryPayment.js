@@ -135,7 +135,7 @@ const RetryPayment = () => {
         </div>
 
         <div className="support-info">
-          <FiInfo /> Need help? Contact our support team at support@farmiculture.com
+          <FiInfo /> Need help? Contact our support team at support@Stockly.com
         </div>
       </div>
 
