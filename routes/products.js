@@ -95,7 +95,7 @@ router.post('/upload', uploadProduct.single('image'), (req, res) => {
   if (!req.file) {
     return res.status(400).json({ message: 'No file uploaded' });
   }
-  res.json({ imageUrl: `http://localhost:5000/uploads/products/${req.file.filename}` });
+  res.json({ imageUrl: `https://hackathon-backend-6c9z.onrender.com/uploads/products/${req.file.filename}` });
 });
 
 module.exports = router;

@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const Product = require('./models/Product'); // Adjust the path if necessary
 require('dotenv').config();
 
-// Use your MongoDB connection URI; if not set in environment, fallback to a local URI
 const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/marketmitra';
 
 mongoose
@@ -17,8 +16,8 @@ mongoose
     process.exit(1);
   });
 
-// Array of product objects to seed into the database
-const products = [
+// Array of product objects from the first seed
+const products1 = [
   {
     name: "Wheat Seeds",
     description: "High quality wheat seeds for a bountiful harvest.",
@@ -128,6 +127,94 @@ const products = [
     createdBy: "67a872f99e7f1266492bee73"
   }
 ];
+
+// Array of product objects from the second seed
+const products2 = [
+  {
+    name: "Greenhouse Tunnel",
+    description: "Durable and efficient greenhouse tunnel to protect your crops from harsh weather conditions.",
+    price: 500,
+    imageUrl: "/assets/products/greenhouse-tunnel.jpg",
+    category: "Greenhouse Equipment",
+    subCategory: "Tunnels",
+    stock: 10,
+    quantityUnit: "unit",
+    quantityValue: 1,
+    specifications: {
+      length: "10m",
+      width: "5m",
+      material: "Polyethylene"
+    },
+    createdBy: "67df35e9cbc3ad181c998866"
+  },
+  {
+    name: "Planter",
+    description: "High-quality planter designed to optimize plant growth and enhance garden aesthetics.",
+    price: 150,
+    imageUrl: "/assets/products/planter.jpg",
+    category: "Gardening Tools",
+    subCategory: "Planters",
+    stock: 25,
+    quantityUnit: "unit",
+    quantityValue: 1,
+    specifications: {
+      material: "Recycled Plastic",
+      dimensions: "30cm x 30cm x 30cm"
+    },
+    createdBy: "67df35e9cbc3ad181c998866"
+  },
+  {
+    name: "Strawberry Seeds",
+    description: "Premium strawberry seeds ensuring a rich yield of sweet and juicy berries.",
+    price: 40,
+    imageUrl: "/assets/products/strawberry-seeds.jpg",
+    category: "Crop Seeds",
+    subCategory: "Fruits",
+    stock: 100,
+    quantityUnit: "packet",
+    quantityValue: 1,
+    specifications: {
+      germinationRate: "90%",
+      usageInstructions: "Plant in well-draining soil"
+    },
+    createdBy: "67df35e9cbc3ad181c998866"
+  },
+  {
+    name: "Vermicompost",
+    description: "Organic vermicompost rich in nutrients, ideal for enhancing soil fertility and structure.",
+    price: 70,
+    imageUrl: "/assets/products/vermicompost.jpg",
+    category: "Fertilizers",
+    subCategory: "Organic",
+    stock: 50,
+    quantityUnit: "bag",
+    quantityValue: 1,
+    specifications: {
+      weight: "20kg",
+      benefits: "Improves soil structure and fertility"
+    },
+    createdBy: "67df35e9cbc3ad181c998866"
+  },
+  {
+    name: "Neem Oil",
+    description: "Natural neem oil for effective pest control without harmful chemicals.",
+    price: 120,
+    imageUrl: "/assets/products/neem-oil.jpg",
+    category: "Pesticides",
+    subCategory: "Organic",
+    stock: 80,
+    quantityUnit: "bottle",
+    quantityValue: 1,
+    specifications: {
+      volume: "500ml",
+      usageInstructions: "Dilute with water before spraying"
+    },
+    createdBy: "67df35e9cbc3ad181c998866"
+  }
+];
+
+// Combine both product arrays
+const products = [...products1, ...products2];
 
 async function seedProducts() {
   try {

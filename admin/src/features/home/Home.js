@@ -15,37 +15,31 @@ const Home = () => {
   const features = [
     {
       title: "Real-Time Inventory Tracking",
-      image: "/assets/home/inventory.png",
       description: "Monitor your stock levels across multiple locations with up-to-the-minute updates.",
       path: "/inventory-tracking"
     },
     {
       title: "Analytics Dashboard",
-      image: "/assets/home/analytics.png",
       description: "Gain actionable insights with data-driven reports and dynamic visual analytics.",
       path: "/analytics"
     },
     {
       title: "Automated Reordering",
-      image: "/assets/home/reorder.png",
       description: "Never run out of stock with intelligent, automated reorder suggestions.",
       path: "/automated-reordering"
     },
     {
       title: "Multi-Channel Management",
-      image: "/assets/home/multichannel.png",
       description: "Seamlessly integrate inventory across all your sales channels and warehouses.",
       path: "/multichannel-management"
     },
     {
       title: "Supplier Integration",
-      image: "/assets/home/supplier.png",
       description: "Connect effortlessly with suppliers for a streamlined procurement process.",
       path: "/supplier-integration"
     },
     {
       title: "Customizable Reports",
-      image: "/assets/home/reports.png",
       description: "Tailor your reporting to meet your business needs with flexible report generation.",
       path: "/custom-reports"
     }
@@ -93,9 +87,6 @@ const Home = () => {
               {features.map((feature, index) => (
                 <div key={index} className={styles.featureSlide}>
                   <div className={styles.featureCard} data-aos="zoom-in" data-aos-delay={`${index * 100}`}>
-                    <div className={styles.featureImageContainer}>
-                      <img src={feature.image} alt={feature.title} className={styles.featureImage} />
-                    </div>
                     <h3 className={styles.featureTitle}>{feature.title}</h3>
                     <p className={styles.featureDescription}>{feature.description}</p>
                     <Link to={feature.path} className={styles.featureLink}>Learn More</Link>

@@ -4,7 +4,8 @@ const redisClient = createClient({
   url: process.env.REDIS_URL,
   socket: {
     tls: process.env.REDIS_URL.startsWith("rediss://"),
-    rejectUnauthorized: false, // This is often needed with Upstash
+    rejectUnauthorized: false,
+    keepAlive: 30000 // This is often needed with Upstash
   }
 });
 

@@ -13,40 +13,23 @@ const Home = () => {
   const { currentUser } = useAuth();
 
   const features = [
-    {
-      title: "Crop Recommendation",
-      image: "/assets/home/crop.png",
-      description: "Get personalized crop suggestions based on your soil conditions.",
-      path: "/crop-recommendation"
-    },
-    {
-      title: "Fertilizer Recommendation",
-      image: "/assets/home/fertilizer.png",
-      description: "Receive custom fertilizer solutions for optimal yield.",
-      path: "/fertilizer-recommendation"
-    },
-    {
-      title: "Disease Detection",
-      image: "/assets/home/disease.png",
-      description: "Identify plant diseases with AI-powered image analysis.",
-      path: "/disease-detection"
-    },
+  
     {
       title: "Community Forum",
       image: "/assets/home/forum.png",
-      description: "Connect and share with the farming community.",
+      description: "Connect and share with the community.",
       path: "/forum"
     },
     {
       title: "Store",
       image: "/assets/home/store.png",
-      description: "Browse and purchase top-quality farming essentials.",
+      description: "Browse and purchase top-quality ecomerce essentials.",
       path: "/store"
     },
     {
       title: "Dashboard",
       image: "/assets/home/dashboard.png",
-      description: "Manage your farm data, orders, and community insights.",
+      description: "Manage your data, orders, and community insights.",
       path: "/dashboard"
     }
   ];
@@ -86,7 +69,7 @@ const Home = () => {
           </div>
         </section>
 
-        {/* <section className={styles.featuresSection} data-aos="fade-up">
+        <section className={styles.featuresSection} data-aos="fade-up">
           <h2 className={styles.sectionTitle}>Our Features</h2>
           <div className={styles.featuresSlider}>
             <Slider {...sliderSettings}>
@@ -104,7 +87,7 @@ const Home = () => {
               ))}
             </Slider>
           </div>
-        </section> */}
+        </section>
       </div>
     </ErrorBoundary>
   );

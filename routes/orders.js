@@ -5,7 +5,7 @@ const Product = require('../models/Product.js');
 const crypto = require('crypto');
 const razorpay = require('../config/razorpay.js');
 const dotenv = require('dotenv');
-const { sendOrderConfirmationEmail } = require('../services/emailService');
+const { sendOrderConfirmationEmail } = require('../services/emailService.js');
 
 // Import your middlewares (make sure these exist in your project)
 const authMiddleware = require('../middleware/authMiddleware.js');

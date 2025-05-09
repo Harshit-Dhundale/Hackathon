@@ -57,16 +57,8 @@ const Navbar = () => {
   return (
     <nav className={styles.navbar}>
       <div className={styles.navbarBrand}>
-        {/* New container for title and dark mode toggle */}
         <div className={styles.brandContainer}>
           <Link to="/" className={styles.logo}>STOCKLY</Link>
-          {/* <button
-            className={styles.themeToggleBtn}
-            onClick={toggleTheme}
-            aria-label="Toggle Dark Mode"
-          >
-            {isDarkMode ? <FiSun /> : <FiMoon />}
-          </button> */}
         </div>
         <button 
           className={styles.mobileMenuToggle}
@@ -89,53 +81,24 @@ const Navbar = () => {
           </Link>
         </li>
         {currentUser && (
-          <>{currentUser.isAdmin && (
-            <button onClick={() => navigate('/admin')} className={styles.dropdownItem}>
-              Admin Panel
-            </button>
-          )}
+          <>
+            {currentUser.isAdmin && (
+              <li className={styles.navItem}>
+                <Link to="/admin" className={location.pathname === '/admin' ? styles.active : ''}>
+                  Admin Panel
+                </Link>
+              </li>
+            )}
             <li className={styles.navItem}>
               <Link to="/dashboard" className={location.pathname === '/dashboard' ? styles.active : ''}>
                 Dashboard
               </Link>
             </li>
-            {/* <li className={styles.navItem}>
-              <Link to="/store" className={location.pathname === '/store' ? styles.active : ''}>
-                Shop
-              </Link>
-            </li> */}
-            {/* <li className={`${styles.navItem} ${styles.authDropdown}`} ref={toolsDropdownRef}>
-              <div 
-                className={styles.dropdownToggle} 
-                onClick={() => setIsToolsDropdownOpen(!isToolsDropdownOpen)}
-              >
-                <span className={styles.navbarUsername}>Smart Tools</span>
-                <span className={styles.dropdownArrow}></span>
-              </div>
-              {isToolsDropdownOpen && (
-                <div className={styles.dropdownMenu}>
-                  <button onClick={() => navigate('/crop-recommendation')} className={styles.dropdownItem}>
-                    Smart Crop Advisor
-                  </button>
-                  <button onClick={() => navigate('/fertilizer-recommendation')} className={styles.dropdownItem}>
-                    Smart Fertilizer Advisor
-                  </button>
-                  <button onClick={() => navigate('/disease-detection')} className={styles.dropdownItem}>
-                    Crop Health Guardian
-                  </button>
-                </div>
-              )}
-            </li> */}
             <li className={styles.navItem}>
               <Link to="/forum" className={location.pathname === '/forum' ? styles.active : ''}>
                 Forum
               </Link>
             </li>
-            {/* <li className={styles.navItem}>
-              <Link to="/cart" className={location.pathname === '/cart' ? styles.active : ''}>
-                Cart
-              </Link>
-            </li> */}
           </>
         )}
 
@@ -167,9 +130,6 @@ const Navbar = () => {
                   <button onClick={() => navigate('/profile')} className={styles.dropdownItem}>
                     My Profile
                   </button>
-                  {/* <button onClick={() => navigate('/order-history')} className={styles.dropdownItem}>
-                    My Orders
-                  </button> */}
                   <button onClick={handleLogout} className={styles.dropdownItem}>
                     Logout
                   </button>
