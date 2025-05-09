@@ -1,0 +1,85 @@
+:root {
+  --primary-green: #2e7d32;
+  --light-green: #e8f5e9;
+  --danger-red: #c62828;
+  --warning-orange: #ff9800;
+}
+
+.storeCard {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+
+.storeCard:hover {
+  transform: translateY(-5px);
+}
+
+.storeHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.storeIcon {
+  font-size: 1.8rem;
+  color: var(--primary-green);
+}
+
+.storeType {
+  margin-left: auto;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  background: var(--light-green);
+  color: var(--primary-green);
+}
+
+.retail { 
+  background: #e8f5e9; 
+  color: #2e7d32; 
+}
+
+.warehouse { 
+  background: #fff3e0; 
+  color: #ef6c00; 
+}
+
+.boutique { 
+  background: #e3f2fd; 
+  color: #1565c0; 
+}
+
+.storeDetailsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.productsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.productTag {
+  background: var(--light-green);
+  color: var(--primary-green);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+}
+
+.storeActions {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}

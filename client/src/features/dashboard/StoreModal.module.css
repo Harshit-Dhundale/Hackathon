@@ -1,0 +1,11 @@
+.modalContent {
+  background: #fff;
+  border-radius: 8px;
+  padding: 0px;
+  width: 90%;
+  max-width: 800px;
+  max-height: 100vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+}

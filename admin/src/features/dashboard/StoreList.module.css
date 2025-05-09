@@ -1,0 +1,34 @@
+.storeList {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.storeList:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.storeList h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.storeListIcon {
+  margin-right: 0.5rem;
+  color: #4CAF50;
+}
+
+.addStoreButton {
+  position: relative;
+  top: 10px;
+}
+
+.storeSliderItem {
+  padding: 0 10px;
+  max-width: 100%;
+}

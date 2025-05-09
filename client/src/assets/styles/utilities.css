@@ -1,0 +1,83 @@
+.container {
+    width: 90%;
+    /* max-width: 1200px; */
+    margin: 0 auto;
+    padding: var(--spacing-md) 0;
+  }
+  
+  .card {
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: var(--spacing-md);
+  }
+  
+  .form-group {
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .btn {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border: none;
+    border-radius: var(--border-radius);
+  }
+  
+  .btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  .btn-primary:hover {
+    background-color: var(--secondary-color);
+  }
+  
+  .error-message {
+    color: var(--error-color);
+    font-size: 0.875rem;
+  }
+
+  
+/* Global dark mode styles */
+.dark body {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+.dark .navbar {
+  background-color: #1a1a1a;
+  border-bottom: 1px solid #333;
+}
+
+.dark .nav-links a {
+  color: #fff;
+}
+
+.dark input,
+.dark select,
+.dark textarea {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+  border: 1px solid #333;
+}
+
+/* Global dark mode overrides */
+.dark body,
+.dark .navbar,
+.dark .auth-module__card,
+.dark .registerForm,
+.dark .dashboard-container {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+.dark a {
+  color: #bb86fc;
+}
+
+.dark input,
+.dark select,
+.dark textarea {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+  border: 1px solid #333;
+}

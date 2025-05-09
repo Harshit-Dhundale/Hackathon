@@ -1,0 +1,79 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+  }
+  
+  h1, h2, h3 {
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  a {
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+  
+  button {
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  input, select, textarea {
+    width: 100%;
+    padding: var(--spacing-xs);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+  }
+
+  
+/* Global dark mode styles */
+.dark body {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+.dark .navbar {
+  background-color: #1a1a1a;
+  border-bottom: 1px solid #333;
+}
+
+.dark .nav-links a {
+  color: #fff;
+}
+
+.dark input,
+.dark select,
+.dark textarea {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+  border: 1px solid #333;
+}
+
+/* Global dark mode overrides */
+.dark body,
+.dark .navbar,
+.dark .auth-module__card,
+.dark .registerForm,
+.dark .dashboard-container {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+.dark a {
+  color: #bb86fc;
+}
+
+.dark input,
+.dark select,
+.dark textarea {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+  border: 1px solid #333;
+}

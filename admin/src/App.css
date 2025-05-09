@@ -1,0 +1,105 @@
+.App {
+  text-align: center;
+}
+
+html, body {
+  height: 100%;
+  overflow-y: auto;
+}
+
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* This ensures proper slide dimensions */
+.slick-slide {
+  height: auto !important; /* Remove fixed heights */
+}
+
+.slick-track {
+  display: flex !important;
+  align-items: stretch;
+}
+
+.slick-slide > div {
+  height: 100%;
+}
+
+/* Global dark mode styles */
+.dark body {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+.dark .navbar {
+  background-color: #1a1a1a;
+  border-bottom: 1px solid #333;
+}
+
+.dark .nav-links a {
+  color: #fff;
+}
+
+.dark input,
+.dark select,
+.dark textarea {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+  border: 1px solid #333;
+}
+
+/* Global dark mode overrides */
+.dark body,
+.dark .navbar,
+.dark .auth-module__card,
+.dark .registerForm,
+.dark .dashboard-container {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+.dark a {
+  color: #bb86fc;
+}
+
+.dark input,
+.dark select,
+.dark textarea {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+  border: 1px solid #333;
+}
+
+/* etc. – adjust as needed for your project */

@@ -1,0 +1,271 @@
+:root {
+  --primary-green: #2ecc71 !important;
+  --dark-green: #27ae60 !important;
+  --light-green: #f0fdf4 !important;
+  --text-dark: #2c3e50 !important;
+}
+
+.contactContainer {
+  max-width: 1200px !important;
+  margin: 2rem auto !important;
+  padding: 0 1.5rem !important;
+}
+
+.contactGrid {
+  display: grid !important;
+  grid-template-columns: 1.2fr 0.8fr !important;
+  gap: 2rem !important;
+  align-items: flex-start !important;
+}
+
+.contactCard {
+  background: white !important;
+  border-radius: 16px !important;
+  padding: 2rem !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08) !important;
+  transition: transform 0.3s ease !important;
+}
+
+.contactCard:hover {
+  transform: translateY(-5px) !important;
+}
+
+.sectionTitle {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.75rem !important;
+  font-size: 1.5rem !important;
+  color: var(--text-dark) !important;
+  margin-bottom: 1rem !important;
+  padding-bottom: 0.75rem !important;
+  border-bottom: 2px solid var(--light-green) !important;
+}
+
+
+/* Form group */
+.formGroup {
+  margin-bottom: 1rem !important;
+}
+.formSection {
+  /* placeholder for future styling */
+  display: inherit; /* minimal property to prevent empty ruleset lint error */
+}
+
+.infoSection {
+  /* placeholder for future styling */
+  display: inherit;
+}
+
+.icon {
+  /* This rule is used by the app for future custom icons */
+  display: inline-block;
+}
+
+.btnIcon {
+  /* This rule is used by the app for future button-icon adjustments */
+  display: inline-block;
+}
+
+.loading {
+  /* This rule is used for showing a loading spinner or text */
+  display: inline-block;
+}
+
+
+/* Adjust icon & input so they don’t overlap */
+.inputWrapper {
+  position: relative !important;
+  margin-bottom: 1rem !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* Make the icon a bit smaller and move it left */
+.inputIcon {
+  position: absolute !important;
+  left: 0.8rem !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  color: #7f8c8d !important;
+  font-size: 1rem !important; /* Reduced icon size */
+  width: 1rem !important;     /* Constrain icon width */
+  height: 1rem !important;    /* Constrain icon height */
+}
+
+/* Increase left padding so text won’t overlap the icon */
+input,
+textarea {
+  width: 100% !important;
+  padding: 1rem 1rem 1rem 4rem !important;
+  border: 2px solid #e0e0e0 !important;
+  border-radius: 8px !important;
+  font-size: 1rem !important;
+  transition: all 0.3s ease !important;
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--primary-green) !important;
+  box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.2) !important;
+  outline: none !important;
+}
+
+textarea {
+  min-height: 150px !important;
+  resize: vertical !important;
+}
+
+/* Submit Button */
+.submitBtn {
+  width: 100% !important;
+  padding: 1rem !important;
+  /* background: linear-gradient(135deg, var(--primary-green), var(--dark-green)) !important; */
+  color: white !important;
+  border: none !important;
+  border-radius: 8px !important;
+  font-size: 1.1rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.75rem !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+}
+
+.submitBtn:hover {
+  opacity: 0.95 !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Contact Info Section */
+.infoItem {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.75rem !important;
+  padding: 1rem !important;
+  background: var(--light-green) !important;
+  border-radius: 12px !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.infoIcon {
+  font-size: 1.4rem !important;
+  color: var(--primary-green) !important;
+  flex-shrink: 0 !important;
+}
+
+.infoContent h3 {
+  margin: 0 !important;
+  font-size: 1rem !important;
+  color: var(--text-dark) !important;
+}
+
+.infoContent p {
+  margin: 0.2rem 0 !important;
+  font-size: 0.95rem !important;
+  color: #666 !important;
+}
+
+.mapEmbed {
+  width: 100% !important;
+  height: 250px !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Feedback Message (unused in code, but left for reference) */
+.feedbackMessage {
+  margin-top: 1rem !important;
+  padding: 1rem !important;
+  background: #e8f5e9 !important;
+  color: var(--dark-green) !important;
+  border-radius: 8px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.75rem !important;
+}
+
+/* Modal Styles */
+.modal {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  background: rgba(0, 0, 0, 0.4) !important;
+  z-index: 9999 !important;
+}
+
+.modalContent {
+  background: #fff !important;
+  padding: 2rem !important;
+  border-radius: 8px !important;
+  text-align: center !important;
+  max-width: 400px !important;
+  width: 100% !important;
+}
+
+.modalContent h2 {
+  font-size: 1.5rem !important;
+  color: #4caf50 !important;
+}
+
+.modalContent p {
+  font-size: 1rem !important;
+  color: #333 !important;
+}
+
+.closeBtn {
+  background-color: #4caf50 !important;
+  color: white !important;
+  padding: 10px 20px !important;
+  border: none !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+  font-size: 1rem !important;
+  margin-top: 1rem !important;
+}
+
+.closeBtn:hover {
+  background-color: #45a049 !important;
+}
+
+/* Footer */
+.contactFooter {
+  text-align: center;
+  padding: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .contactGrid {
+    grid-template-columns: 1fr !important;
+  }
+  .mapEmbed {
+    height: 200px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .contactCard {
+    padding: 1.5rem !important;
+  }
+  .infoItem {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+}
+
+@media (max-width: 480px) {
+  input,
+  textarea {
+    padding-left: 3.2rem !important;
+  }
+  .inputIcon {
+    left: 0.6rem !important;
+  }
+}
