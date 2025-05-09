@@ -116,7 +116,7 @@ const Register = () => {
           {/* Header: Copied from Login with animation */}
           <div className={styles.authModuleHeader}>
             <h1 className={styles.authModuleBrand}>
-              <span className={styles.authModuleLogo}>🌱</span>
+              <span className={styles.authModuleLogo}>🛍</span>
               <span style={{ color: "#7AC752" }}>MarketMitra</span>
             </h1>
             <p className={styles.authModuleTagline}>Cultivating Digital Farm Communities</p>
