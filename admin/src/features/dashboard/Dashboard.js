@@ -1,5 +1,6 @@
+// Dashboard.js
 import React, { useEffect, useState } from 'react';
-import Slider from 'react-slick';
+import { useNavigate } from 'react-router-dom';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
@@ -12,7 +13,6 @@ import {
   faStar,
   faRocket,
   faPlus,
-  faChartLine,
   faBox,
   faClock,
   faShoppingBag,
@@ -26,11 +26,14 @@ import api from '../../utils/api';
 
 import LoadingSpinner from '../../components/common/LoadingSpinner';
 import HeroHeader from '../../components/common/HeroHeader';
+import ProductModal from '../admin/ProductModal'; // <-- Import your ProductModal here
 
 import styles from './Dashboard.module.css';
 
 const Dashboard = () => {
   const { currentUser } = useAuth();
+  const navigate = useNavigate();
+
   const [userData, setUserData] = useState(null);
   const [adminProducts, setAdminProducts] = useState([]);
   const [orders, setOrders] = useState([]);
@@ -41,6 +44,10 @@ const Dashboard = () => {
   const [totalAdminOrders, setTotalAdminOrders] = useState(0);
   const [lowStockProducts, setLowStockProducts] = useState([]);
   const [popularProducts, setPopularProducts] = useState([]);
+
+  // For adding/editing products directly from the Dashboard
+  const [modalOpen, setModalOpen] = useState(false);
+  const [editingProduct, setEditingProduct] = useState(null);
 
   // ---------------------------------------
   // Fetch user data, products, orders
@@ -117,22 +124,40 @@ const Dashboard = () => {
     }
   }, [adminProducts, orders]);
 
+  // ---------------------------------------
+  // Product Modal Handlers (Add/Edit)
+  // ---------------------------------------
+  const handleOpenModal = () => {
+    setEditingProduct(null);
+    setModalOpen(true);
+  };
+
+  const handleSaveProduct = async (productData) => {
+    try {
+      if (!productData._id) {
+        // New product
+        productData.createdBy = currentUser._id;
+        await api.post('/products', productData);
+      } else {
+        // Update existing
+        await api.put(`/products/${productData._id}`, productData);
+      }
+      setModalOpen(false);
+
+      // Refresh admin products
+      const res = await api.get(`/products?createdBy=${encodeURIComponent(currentUser._id)}`);
+      setAdminProducts(res.data);
+    } catch (err) {
+      console.error('Failed to save product:', err);
+    }
+  };
+
   if (loading) return <LoadingSpinner />;
   if (error) return <p className={styles.dashboardError}>{error}</p>;
 
-  // ---------------------------------------
-  // Carousel settings for product thumbnails
-  // ---------------------------------------
-  const productCarouselSettings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    arrows: false,
-  };
+  // If there are no products AND no orders, show a simple warning
+  const hasNoProducts = adminProducts.length === 0;
+  const hasNoOrders = totalAdminOrders === 0;
 
   return (
     <>
@@ -159,17 +184,8 @@ const Dashboard = () => {
             <div className={styles.cardContent}>
               <h3>{adminProducts.length}</h3>
               <p>Total Products</p>
-              {adminProducts.length > 0 && (
-                <div className={styles.carouselContainer}>
-                  <Slider {...productCarouselSettings}>
-                    {adminProducts.map(product => (
-                      <div key={product._id} className={styles.carouselItem}>
-                        <img src={product.imageUrl} alt={product.name} className={styles.productImg} />
-                        <span className={styles.productLabel}>{product.name}</span>
-                      </div>
-                    ))}
-                  </Slider>
-                </div>
+              {hasNoProducts && (
+                <p className={styles.warnText}>No products found. Please add some products!</p>
               )}
             </div>
           </div>
@@ -182,27 +198,9 @@ const Dashboard = () => {
             <div className={styles.cardContent}>
               <h3>{totalAdminOrders}</h3>
               <p>Total Orders</p>
-              <div className={styles.orderPreview}>
-                {orders
-                  .filter(order =>
-                    order.products.some(item =>
-                      adminProducts.some(p => p._id === item.product.toString())
-                    )
-                  )
-                  .slice(0, 5)
-                  .map(order => (
-                    <div key={order._id} className={styles.orderItem}>
-                      <FontAwesomeIcon icon={faReceipt} className={styles.orderIcon} />
-                      <div className={styles.orderInfo}>
-                        <span>Order #{order.orderId}</span>
-                        <span className={styles.orderDate}>
-                          {new Date(order.createdAt).toLocaleDateString()}
-                        </span>
-                      </div>
-                    </div>
-                  ))
-                }
-              </div>
+              {hasNoOrders && (
+                <p className={styles.warnText}>No orders found yet.</p>
+              )}
             </div>
           </div>
 
@@ -214,21 +212,8 @@ const Dashboard = () => {
             <div className={styles.cardContent}>
               <h3>{lowStockProducts.length}</h3>
               <p>Low Stock Alerts</p>
-              {lowStockProducts.length > 0 && (
-                <div className={styles.alertList}>
-                  {lowStockProducts.map(product => (
-                    <div key={product._id} className={styles.alertItem}>
-                      <img src={product.imageUrl} alt={product.name} className={styles.alertImg} />
-                      <div className={styles.alertDetails}>
-                        <span>{product.name}</span>
-                        <div className={styles.stockBar}>
-                          <div className={styles.stockFill} style={{ width: `${(product.stock / 20) * 100}%` }} />
-                        </div>
-                        <span className={styles.stockText}>{product.stock} left</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+              {lowStockProducts.length === 0 && (
+                <p className={styles.warnText}>No low stock items.</p>
               )}
             </div>
           </div>
@@ -241,21 +226,8 @@ const Dashboard = () => {
             <div className={styles.cardContent}>
               <h3>{popularProducts.length}</h3>
               <p>Popular Products</p>
-              {popularProducts.length > 0 && (
-                <div className={styles.popularList}>
-                  {popularProducts.map(product => (
-                    <div key={product._id} className={styles.popularItem}>
-                      <img src={product.imageUrl} alt={product.name} className={styles.popularImg} />
-                      <div className={styles.popularDetails}>
-                        <span>{product.name}</span>
-                        <div className={styles.hotBadge}>
-                          <FontAwesomeIcon icon={faFire} />
-                          <span>Hot Seller</span>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+              {popularProducts.length === 0 && (
+                <p className={styles.warnText}>No popular items yet.</p>
               )}
             </div>
           </div>
@@ -271,13 +243,24 @@ const Dashboard = () => {
               <FontAwesomeIcon icon={faRocket} /> Quick Actions
             </h2>
             <div className={styles.actions}>
-              <button className={styles.actionBtn}>
+              {/* Add New Product => opens ProductModal */}
+              <button className={styles.actionBtn} onClick={handleOpenModal}>
                 <FontAwesomeIcon icon={faPlus} /> Add New Product
               </button>
-              <button className={styles.actionBtn}>
-                <FontAwesomeIcon icon={faChartLine} /> View Sales Report
+
+              {/* Manage Orders => go to AdminPanel, Orders tab */}
+              <button
+                className={styles.actionBtn}
+                onClick={() => navigate('/admin?tab=orders')}
+              >
+                <FontAwesomeIcon icon={faShoppingCart} /> Manage Orders
               </button>
-              <button className={styles.actionBtn}>
+
+              {/* Manage Inventory => go to AdminPanel, Products tab */}
+              <button
+                className={styles.actionBtn}
+                onClick={() => navigate('/admin?tab=products')}
+              >
                 <FontAwesomeIcon icon={faBox} /> Manage Inventory
               </button>
             </div>
@@ -288,26 +271,46 @@ const Dashboard = () => {
             <h2>
               <FontAwesomeIcon icon={faClock} /> Recent Orders
             </h2>
-            <div className={styles.recentList}>
-              {orders.slice(0, 5).map(order => (
-                <div key={order._id} className={styles.recentItem}>
-                  <div className={styles.recentIcon}>
-                    <FontAwesomeIcon icon={faShoppingBag} />
+            {orders.length === 0 ? (
+              <p className={styles.warnText}>No orders to display.</p>
+            ) : (
+              <div className={styles.recentList}>
+                {orders.slice(0, 5).map(order => (
+                  <div key={order._id} className={styles.recentItem}>
+                    <div className={styles.recentIcon}>
+                      <FontAwesomeIcon icon={faShoppingBag} />
+                    </div>
+                    <div className={styles.recentInfo}>
+                      <span className={styles.orderId}>Order #{order.orderId}</span>
+                      <span className={styles.orderStatus}>Status: {order.deliveryStatus}</span>
+                      <span className={styles.orderDate}>
+                        {new Date(order.createdAt).toLocaleDateString()}
+                      </span>
+                    </div>
+                    <span className={styles.orderAmount}>₹{order.totalAmount}</span>
                   </div>
-                  <div className={styles.recentInfo}>
-                    <span className={styles.orderId}>Order #{order.orderId}</span>
-                    <span className={styles.orderStatus}>Status: {order.deliveryStatus}</span>
-                    <span className={styles.orderDate}>
-                      {new Date(order.createdAt).toLocaleDateString()}
-                    </span>
-                  </div>
-                  <span className={styles.orderAmount}>₹{order.totalAmount}</span>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </div>
+
+      {/* Product Modal for adding/editing products */}
+      {modalOpen && (
+        <ProductModal
+          isOpen={modalOpen}
+          onClose={() => setModalOpen(false)}
+          onSave={handleSaveProduct}
+          initialData={editingProduct}
+          subCategories={{
+            "Crop Seeds": ["Cereals", "Pulses", "Oilseeds", "Vegetables", "Fruits"],
+            "Fertilizers": ["Nitrogen-based", "Phosphorus-based", "Potassium-based", "Complex"],
+            "Pesticides": ["Insecticides", "Fungicides", "Herbicides", "Organic"],
+            "Farming Equipment": ["Tillage", "Planting", "Irrigation", "Harvesting"]
+          }}
+        />
+      )}
     </>
   );
 };

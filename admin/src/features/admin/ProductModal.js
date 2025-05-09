@@ -96,12 +96,21 @@ const ProductModal = ({
     
     try {
       setUploadingImage(true);
+      // Point to your existing upload endpoint
       const response = await api.post("/upload", formPayload, {
         headers: { "Content-Type": "multipart/form-data" }
       });
-      setFormData(prev => ({ ...prev, imageUrl: response.data.imageUrl }));
+      
+      console.log('Upload response:', response.data);
+      
+      // Use imageUrl from response
+      setFormData(prev => ({ 
+        ...prev, 
+        imageUrl: response.data.imageUrl // Ensure this matches the response key
+      }));
       setUploadError("");
     } catch (err) {
+      console.error('Upload error:', err);
       setUploadError("Image upload failed. Please try again.");
     } finally {
       setUploadingImage(false);
