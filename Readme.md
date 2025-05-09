@@ -1,10 +1,17 @@
+![Logo](https://raw.githubusercontent.com/Harshit-Dhundale/Hackathon/main/Logo.jpg)
+
 # 🚀 MarketMitra & Stockly 🛍📊
 
-MarketMitra (Client) & Stockly (Admin) is a full-stack React-based eCommerce management platform that helps retailers track inventory, manage sales, and optimize operations seamlessly. The project consists of three main parts:
+
+[![Stockly – Admin Panel](https://img.shields.io/badge/Stockly%20(Admin)-Live-green?style=for-the-badge&logo=vercel)](https://stockly-mu.vercel.app/)
+[![MarketMitra – Client Side](https://img.shields.io/badge/MarketMitra%20(Client)-Live-green?style=for-the-badge&logo=vercel)](https://marketmitra.vercel.app/)
+
+MarketMitra (Customer) & Stockly (Vendor) is a full-stack React-based eCommerce management platform that helps retailers track inventory, manage sales, and optimize operations seamlessly. The project consists of three main parts:
 
 - 🏪 *Admin Panel (Stockly)* – Inventory and sales management dashboard.
 - 🛒 *Client Side (MarketMitra)* – User-friendly marketplace interface.
 - 🔗 *Backend* – Node.js with MongoDB for data storage, managing API endpoints, database interactions, and authentication.
+
 
 ---
 
