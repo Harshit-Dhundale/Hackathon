@@ -2,8 +2,6 @@
 
 # 🚀 MarketMitra & Stockly 🛍📊
 
-## 🎥 Demo Video  
-[![Watch the video](https://img.youtube.com/vi/4yCc4pIWgqY/0.jpg)](https://youtu.be/4yCc4pIWgqY)
 
 [![Stockly – Admin Panel](https://img.shields.io/badge/Stockly%20(Admin)-Live-green?style=for-the-badge&logo=vercel)](https://stockly-mu.vercel.app/)
 [![MarketMitra – Client Side](https://img.shields.io/badge/MarketMitra%20(Client)-Live-green?style=for-the-badge&logo=vercel)](https://marketmitra.vercel.app/)
@@ -14,6 +12,8 @@ MarketMitra (Customer) & Stockly (Vendor) is a full-stack React-based eCommerce 
 - 🛒 *Client Side (MarketMitra)* – User-friendly marketplace interface.
 - 🔗 *Backend* – Node.js with MongoDB for data storage, managing API endpoints, database interactions, and authentication.
 
+## 🎥 Demo Video  
+[![Watch the video](https://img.youtube.com/vi/4yCc4pIWgqY/0.jpg)](https://youtu.be/4yCc4pIWgqY)
 
 ---
 
